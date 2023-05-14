@@ -1,6 +1,9 @@
 const express = require('express');
 const mysql = require('mysql2');
 
+//const db = require('./config/connection');
+const sequelize = require('./config/connection');
+
 const port = process.env.PORT || 3001;
 const app = express();
 
@@ -32,3 +35,7 @@ app.use((req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });  
+
+sequelize.sync().then(() => {
+    app.listen(port, () => console.log(`App listening on port ${port}!`));
+});
