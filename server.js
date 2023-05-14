@@ -21,6 +21,10 @@ db.query('SELECT * FROM sample_menu', function (err, results) {
     console.log(results);
 });
 
+db.query('SELECT * FROM sample_menu2', function (err, results) {
+    console.log(results);
+});
+
 app.use((req, res) => {
     res.status(404).end();
 });
